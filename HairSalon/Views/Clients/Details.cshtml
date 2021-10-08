@@ -11,7 +11,23 @@
 <hr />
 <h4>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h4>
 <p>@Html.DisplayNameFor(model => model.Stylist.Name): @Html.DisplayFor(model => model.Stylist.Name)
+  @if (ViewBag.AppointmentList.Count == 0)
+{
+  <p>No appointments for this client have been added.</p>
+}
 
+<ul>
+  @foreach (Appointment appointment in ViewBag.AppointmentList)
+  {
+    <li>
+      <p>@appointment.Text</p>
+      <p>@Html.ActionLink("Edit Appointment", "Edit", "Appointments", new { id = appointment.AppointmentId}) @Html.ActionLink("Delete Appointment",
+      "Delete", "Appointments", new { id = appointment.AppointmentId})</p>
+    </li>
+
+  }
+</ul>
+<p>@Html.ActionLink("Book an appointment for this client", "Create", "Appointments", new { id = Model.ClientId})</p>
 <p>@Html.ActionLink("Back to List", "Index")</p>
 <p>@Html.ActionLink("Edit Client", "Edit", new { id = Model.ClientId})</p>
 <p>@Html.ActionLink("Delete Client", "Delete", new { id = Model.ClientId})</p>

@@ -39,6 +39,7 @@ namespace HairSalon.Controllers
       public ActionResult Details(int id)
       {
         Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+        ViewBag.AppointmentList = _db.Appointments.Where(appointment => appointment.ClientId == id).ToList();
         return View(thisClient);
       }
 
@@ -83,5 +84,11 @@ namespace HairSalon.Controllers
         List<Client> searchResults = _db.Clients.Where(client => client.Name.ToLower().Contains(searchName)).ToList();
         return View("Index", searchResults);
       }
+    // public ActionResult Search(int id)
+    // {
+    //   List<Stylist> model = _db.Stylists.Where(stylist => stylist.ClientId == id).ToList();
+    //   ViewBag.Client = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+    //   return View(model);
+    // }
     }
 }

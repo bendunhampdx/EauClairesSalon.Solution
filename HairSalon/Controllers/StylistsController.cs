@@ -66,6 +66,13 @@ namespace HairSalon.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+      [HttpPost]
+    public ActionResult Search(string name)
+    {
+      string searchName = name.ToLower();
+      List<Stylist> searchResults = _db.Stylists.Where(stylist => stylist.Name.ToLower().Contains(searchName)).ToList();
+      return View("Index", searchResults);
+    }
 
     public ActionResult Search(int id)
     {

@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Appointment
+
+<div class="jumbotron">
+  <h3>Editing @Model.Text</h3>
+</div>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.AppointmentId)
+
+  @Html.LabelFor(model => model.Text)
+  @Html.EditorFor(model => model.Text)
+
+  <input type="submit" value="Save"/>
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

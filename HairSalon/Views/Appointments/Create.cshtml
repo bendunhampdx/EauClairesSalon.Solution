@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Appointment
+
+<div class="jumbotron">
+  <h3>Add a new appointment</h3>
+</div>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Text)
+  @Html.TextBoxFor(model => model.Text)
+
+  <!-- Could not get Html Helper to work for default value -->
+  <input data-val="true" data-val-required="The ClientId field is required." id="ClientId" name="ClientId" type="hidden" value=@ViewBag.Client.ClientId.ToString()>
+
+  <input type="submit" value="Add new appointment" class="btn btn-default"/>
+}
+<p>@Html.ActionLink("Show all appointments", "Index")</p>
