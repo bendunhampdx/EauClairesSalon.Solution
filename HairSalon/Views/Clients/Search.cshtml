@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Client
+
+<div class="jumbotron">
+  <h3>Client Search</h3>
+</div>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+  <input type="submit" value="Search"/>
+}
+
+<p>@Html.ActionLink("See all stylist options", "Index", "Stylists")</p>
+<p>@Html.ActionLink("See all Clients", "Index", "Clients")</p>
