@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@using HairSalon.Models;
+
+<div class="jumbotron">
+  <h3>Stylist Options</h3>
+</div>
+
+@if (@Model.Count == 0)
+{
+  <p>No stylists have been added yet!</p>
+}
+
+<ul>
+  @foreach (Stylist stylist in Model)
+  {
+    <li>@Html.ActionLink($"{stylist.Name}", "Details", new {id = stylist.StylistId})</li>
+  }
+</ul>
+
+<p>@Html.ActionLink("Add new stylist", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
