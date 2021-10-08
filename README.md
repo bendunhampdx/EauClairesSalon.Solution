@@ -43,7 +43,7 @@ This program creates a site for a list of clients associated with a Hair Salon s
 
 ## Known Bugs
 
-* _no bugs known_
+* _Upon saving an edited client, client is deleted_
 
 ## License
 
