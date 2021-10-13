@@ -9,6 +9,8 @@
 </div>
 <hr/>
 <h4>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h4>
+
+
 <p>@Html.ActionLink("View Clients for this Stylist", "Search", new { id = Model.StylistId })</p>
 <p>@Html.ActionLink("Edit Stylist", "Edit", new { id = Model.StylistId })</p>
 <p>@Html.ActionLink("Delete Stylist", "Delete", new { id = Model.StylistId })</p>
